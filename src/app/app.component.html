@@ -1,0 +1,8 @@
+
+<app-sidebar *ngIf="globalService.getToken && globalService.currentUserValue"></app-sidebar>
+<div class="page-container" >
+    <app-navbar *ngIf="globalService.getToken && globalService.currentUserValue"></app-navbar>
+    <router-outlet></router-outlet>
+    <app-footer *ngIf="globalService.getToken && globalService.currentUserValue"></app-footer>
+
+</div>

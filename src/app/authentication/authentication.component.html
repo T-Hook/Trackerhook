@@ -1,0 +1,70 @@
+<div id='loader'>
+  <div class="spinner"></div>
+</div>
+<div class="peers ai-s fxw-nw h-100vh">
+  <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv"
+       style='background-image: url("assets/static/images/t.jpg")'>
+    <div class="pos-a centerXY">
+
+    </div>
+  </div>
+  <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
+    <h4 class="fw-300 c-grey-900 mB-40">{{ 'PAGES.AUTHENTICATION.LOGIN' | translate }}</h4>
+    <ng-template [ngIf]="loginFailure">
+      <div class="alert alert-danger">
+        {{ 'PAGES.AUTHENTICATION.ERROR' | translate }}
+      </div>
+    </ng-template>
+    <form [formGroup]="authenticationForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label class="text-normal text-dark">{{ 'PAGES.AUTHENTICATION.FORM.EMAIL.LABEL' | translate }}</label>
+        <input type="email" placeholder="Example@mail.com" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && authenticationForm.controls.email.errors }">
+        <div *ngIf="submitted && authenticationForm.controls.email.errors" class="text-danger">
+          <div *ngIf="authenticationForm.controls.email.errors.required">{{ 'PAGES.AUTHENTICATION.FORM.EMAIL.ERRORS.REQUIRED' | translate }}</div>
+          <div *ngIf="authenticationForm.controls.email.errors.email">{{ 'PAGES.AUTHENTICATION.FORM.EMAIL.ERRORS.INVALID' | translate }}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="text-normal text-dark">{{ 'PAGES.AUTHENTICATION.FORM.COMPANY.LABEL' | translate }}</label>
+        <input type="text" placeholder="Your company" formControlName="company" class="form-control" [ngClass]="{ 'is-invalid': submitted && authenticationForm.controls.company.errors }">
+        <div *ngIf="submitted && authenticationForm.controls.company.errors" class="text-danger">
+          <div *ngIf="authenticationForm.controls.company.errors.required">{{ 'PAGES.AUTHENTICATION.FORM.COMPANY.ERRORS.REQUIRED' | translate }}</div>
+          <div *ngIf="authenticationForm.controls.company.errors.company">{{ 'PAGES.AUTHENTICATION.FORM.COMPANY.ERRORS.INVALID' | translate }}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="text-normal text-dark">{{ 'PAGES.AUTHENTICATION.FORM.PASSWORD.LABEL' | translate }}</label>
+        <input type="password"  placeholder="******" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && authenticationForm.controls.password.errors }">
+        <div *ngIf="submitted && authenticationForm.controls.password.errors" class="text-danger">
+          <div *ngIf="authenticationForm.controls.password.errors.required">{{ 'PAGES.AUTHENTICATION.FORM.PASSWORD.ERRORS.REQUIRED' | translate }}</div>
+          <div *ngIf="authenticationForm.controls.password.errors.minlength">{{ 'PAGES.AUTHENTICATION.FORM.PASSWORD.ERRORS.INVALID' | translate }}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="peers ai-c jc-sb fxw-nw">
+          <div class="peer">
+            <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+              <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+              <label for="inputCall1" class=" peers peer-greed js-sb ai-c">
+                <span class="peer peer-greed">{{ 'PAGES.AUTHENTICATION.FORM.REMEMBER_ME' | translate }}</span>
+              </label>
+            </div>
+
+
+          </div>
+          <div class="peer">
+            <button class="btn btn-primary">{{ 'PAGES.AUTHENTICATION.FORM.SUBMIT' | translate }}</button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </form>
+
+    <div>
+     <a href=""> Forget password ?</a>
+      </div>
+  </div>
+
+</div>

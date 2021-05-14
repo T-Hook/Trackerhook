@@ -1,0 +1,93 @@
+<div class="sidebar">
+    <div class="sidebar-inner">
+        <!-- ### $Sidebar Header ### -->
+        <div class="sidebar-logo">
+            <div class="peers ai-c fxw-nw">
+                <div class="peer peer-greed">
+                    <a class="sidebar-link td-n" href="index.html">
+                        <div class="peers ai-c fxw-nw">
+                            <div class="peer">
+                                <div class="logo">
+                                    <img src="assets/static/images/logo.png" alt="">
+                                </div>
+                            </div>
+                            <div class="peer peer-greed">
+                                <h5 class="lh-1 mB-0 logo-text" *ngIf="globalService.currentUserValue">
+                                    {{globalService.currentUserValue.companyUser.idCompany.name}}
+                                </h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="peer">
+                    <div class="mobile-toggle sidebar-toggle">
+                        <a href="" class="td-n">
+                            <i class="ti-arrow-circle-left"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ### $Sidebar Menu ### -->
+        <ul class="sidebar-menu scrollable pos-r">
+            <li class="nav-item mT-30 actived">
+                <a class="sidebar-link" routerLink="/home">
+                <span class="icon-holder">
+                  <i class="c-blue-500 ti-home"></i>
+                </span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/companies">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">About company</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/projects">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">Projects</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/tasks">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">Tasks</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/sprints">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">Sprints</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/tracking">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">Tracking</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class='sidebar-link' routerLink="/starter">
+                <span class="icon-holder">
+                  <i class="c-brown-500 ti-support"></i>
+                </span>
+                    <span class="title">starter</span>
+                </a>
+            </li>
+
+          </ul>
+    </div>
+</div>

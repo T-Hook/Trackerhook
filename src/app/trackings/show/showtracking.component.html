@@ -1,0 +1,251 @@
+<main class='main-content bgc-grey-100' >
+    <div *ngIf="tracking" class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">List Tracking</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+                <button class="btn btn-sm btn-primary" (click)="showPreviousTracking()">Back</button>
+                <button class="btn btn-sm btn-primary" (click)="showNextTracking()">Next</button>
+
+            </div>
+            <button class="btn btn-sm btn-danger" (click)="goToListTracking()">
+                Return
+            </button>
+            <button class="btn btn-sm btn-info">Export</button>
+
+        </div>
+    </div>
+    <div *ngIf="!tracking" class="row gap-20 masonry pos-r">
+
+        <div class="masonry-sizer col-md-6"></div>
+
+        <div class="masonry-item w-100">
+            <div class="row gap-10">
+
+                <div class='col-md-12' *ngIf="paginationObject.pages">
+
+
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group mr-2" role="group" aria-label="First group"
+                             *ngFor="let item of paginationObject.pages">
+                            <button type="button" class="btn " (click)="changePage(item._value)" [ngClass]=
+                                    "{'btn-success':item.active,'btn-info':!item.active}">{{item.value}}</button>
+
+                        </div>
+                        <div class="btn-group mr-2" role="group" aria-label="Second group">
+                            <button type="button" (click)="changeLimitPerPage(8)" class="btn "
+                                    [ngClass]=
+                                            "{'btn-success':option.limit==8,'btn-info':option.limit!=8}">8
+                            </button>
+                            <button type="button" (click)="changeLimitPerPage(16)" class="btn" [ngClass]=
+                                    "{'btn-success':option.limit==16,'btn-info':option.limit!=16}">16
+                            </button>
+                            <button type="button" (click)="changeLimitPerPage(32)" class="btn " [ngClass]=
+                                    "{'btn-success':option.limit==32,'btn-info':option.limit!=32}">32
+                            </button>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class='col-md-12' *ngIf="trackings">
+
+                    <div class="masonry-item w-100">
+                        <div class="row gap-10">
+                            <div class='col-md-3' *ngFor="let tracking of trackings ; let r =index">
+                                <div class="bd bgc-white">
+                                    <div class="layers">
+
+                                        <div class="layer w-100 p-20">
+                                            <div class="mT-30" height="220">
+                                                <img style="width: 100%;max-width: 700px;max-height: 400px;"
+                                                     *ngIf="tracking.screen"
+                                                     [src]="tracking.screen">
+                                            </div>
+                                        </div>
+                                        <div class="layer bdT p-20 w-100">
+                                            <div class="peers ai-c jc-c gapX-20">
+                                                <div class="peer">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.mouseClick}} <i
+                                                    class="fa fa-level-up c-green-500"></i></span>
+                                                    <small class="c-grey-500 fw-600">mouseClick</small>
+                                                </div>
+                                                <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.keyPress}} <i
+                                                    class="fa fa-level-down c-red-500"></i></span>
+                                                    <small class="c-grey-500 fw-600">keyPress</small>
+                                                </div>
+                                                <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.totalMouseClick}}
+                                                <i
+                                                        class="fa fa-level-up c-green-500"></i></span>
+                                                    <small class="c-grey-500 fw-600">total Mouse Click</small>
+                                                </div>
+                                                <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.totalMouseClick}}
+                                                <i
+                                                        class="fa fa-level-down c-red-500"></i></span>
+                                                    <small class="c-grey-500 fw-600">total Mouse Click</small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ul class="m-0 p-0 mT-20">
+                                            <li class="bdB peers ai-c jc-sb fxw-nw">
+                                                <a class="td-n p-20 peers fxw-nw mR-20 peer-greed c-grey-900"
+                                                   href="javascript:void(0);" data-toggle="modal"
+                                                   data-target="#calendar-edit">
+                                                    <div class="peer mR-15">
+                                                        <i class="fa fa-fw fa-building c-green-500"></i>
+                                                    </div>
+                                                    <div class="peer">
+                                                        <span class="fw-600"></span>
+                                                        <div class="c-grey-600">
+                                                            {{ tracking.trackingId}}
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                <div class="peers mR-15">
+                                                    <div class="peer">
+                                                        <a class="td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+                                                            <i class="ti-desktop"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="peer">
+                                                        <a class="td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+                                                            <i class="ti-eye" (click)="selectTracking(tracking,r)"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="tracking" class="masonry-item w-100">
+        <div class="row gap-10">
+            <div class='col-md-4'>
+                <div class='col-md-12' >
+                    <div class="bd bgc-white">
+                        <div class="layers">
+
+                            <div class="layer w-100 p-20">
+                                <div class="mT-30" height="220">
+                                    <img style="width: 100%;max-width: 700px;max-height: 400px;"
+                                         *ngIf="tracking.screen"
+                                         [src]="tracking.screen">
+                                </div>
+                            </div>
+                            <div class="layer bdT p-20 w-100">
+                                <div class="peers ai-c jc-c gapX-20">
+                                    <div class="peer">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.mouseClick}} <i
+                                                    class="fa fa-level-up c-green-500"></i></span>
+                                        <small class="c-grey-500 fw-600">mouseClick</small>
+                                    </div>
+                                    <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.keyPress}} <i
+                                                    class="fa fa-level-down c-red-500"></i></span>
+                                        <small class="c-grey-500 fw-600">keyPress</small>
+                                    </div>
+                                    <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.totalMouseClick}}
+                                                <i
+                                                        class="fa fa-level-up c-green-500"></i></span>
+                                        <small class="c-grey-500 fw-600">total Mouse Click</small>
+                                    </div>
+                                    <div class="peer fw-600">
+                                            <span class="fsz-def fw-600 mR-10 c-grey-800">{{tracking.totalMouseClick}}
+                                                <i
+                                                        class="fa fa-level-down c-red-500"></i></span>
+                                        <small class="c-grey-500 fw-600">total Mouse Click</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="m-0 p-0 mT-20">
+                                <li class="bdB peers ai-c jc-sb fxw-nw">
+                                    <a class="td-n p-20 peers fxw-nw mR-20 peer-greed c-grey-900"
+                                       href="javascript:void(0);" data-toggle="modal"
+                                       data-target="#calendar-edit">
+                                        <div class="peer mR-15">
+                                            <i class="fa fa-fw fa-building c-green-500"></i>
+                                        </div>
+                                        <div class="peer">
+                                            <span class="fw-600"></span>
+                                            <div class="c-grey-600">
+                                                {{ tracking.trackingId}}
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="peers mR-15">
+                                        <div class="peer">
+                                            <a class="td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+                                                <i class="ti-desktop"></i>
+                                            </a>
+                                        </div>
+                                        <div class="peer">
+                                            <a class="td-n c-deep-purple-500 cH-blue-500 fsz-md p-5">
+                                                <i class="ti-eye" ></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='col-md-8'>
+                <div class="masonry-item w-100">
+                    <div class="row gap-10">
+                        <div class='col-md-4' *ngFor="let window of tracking.allOpenedWindows ; let r =index">
+                            <div class="bd bgc-white">
+
+
+                                <div class="layers">
+
+                                    <div class="layer w-100 p-20">
+                                        <div class="mT-30" height="220">
+                                            <img style="width: 100%;max-width: 700px;max-height: 400px;"
+                                                 *ngIf="window.base64"
+                                                 [src]="window.base64">
+                                        </div>
+                                    </div>
+
+                                    <ul class="m-0 p-0 mT-20">
+                                        <li class="bdB peers ai-c jc-sb fxw-nw">
+                                            <a class="td-n p-20 peers fxw-nw mR-20 peer-greed c-grey-900"
+                                               href="javascript:void(0);" data-toggle="modal"
+                                               data-target="#calendar-edit">
+                                                <div class="peer mR-15">
+                                                    <i class="fa fa-fw fa-cube c-green-500"></i>
+                                                </div>
+                                                <div class="peer">
+                                                    <span class="fw-600"></span>
+                                                    <div class="c-grey-600">
+                                                        {{ window.name}}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+

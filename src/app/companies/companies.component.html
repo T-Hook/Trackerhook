@@ -1,0 +1,76 @@
+<main class='main-content bgc-grey-100'>
+
+  <div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12" *ngFor="let company of companies ; let r =index">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile" >
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> </div>
+                                <br><br><br><br><br>
+                                <div class="f-w-600" *ngIf="company.idCompany"> <h3>  {{company.idCompany.name}}  </h3>    </div>
+                                <p> </p> <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">About your company</h6>
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                      Description
+                                        <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.description}} </h6>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                  <div class="col-sm-6">
+                                    Address
+                                      <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.address}} </h6>
+                                  </div>
+                              </div>
+                              <div class="row">
+
+                                <div class="col-sm-6">
+                                  Region
+                                    <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.region}} </h6>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                              <div class="col-sm-6">
+                                Email
+                                  <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.email}} </h6>
+                              </div>
+                          </div>
+                          <div class="row">
+
+                            <div class="col-sm-6">
+                              Phone number
+                                <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.phone}} </h6>
+                            </div>
+                        </div>
+                          <div class="row">
+
+                            <div class="col-sm-6">
+                              Website
+                                <h6 class="text-muted f-w-400" *ngIf="company.idCompany"> {{company.idCompany.website}} </h6>
+                            </div>
+                        </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</main>

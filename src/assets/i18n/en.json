@@ -1,0 +1,42 @@
+{
+  "PAGES": {
+    "HOME": {
+      "TITLE": "App works !",
+      "TRACKING_STATUS" : {
+        "LABEL" : "Tracking Status",
+        "STARTED" : "Tracking Started",
+        "PAUSED" : "Tracking Paused",
+        "STOPPED" : "Tracking Stopped"
+      }
+    },
+    "AUTHENTICATION": {
+      "LOGIN": "Login",
+      "ERROR": "Invalid Credentials",
+      "FORM": {
+        "EMAIL": {
+          "LABEL" : "Email",
+          "ERRORS" : {
+            "REQUIRED" : "Email is required",
+            "INVALID" : "Email must be a valid email address"
+          }
+        },
+        "COMPANY": {
+          "LABEL" : "Company",
+          "ERRORS" : {
+            "REQUIRED" : "Company is required",
+            "INVALID" : "Company must not contain special characters"
+          }
+        },
+        "PASSWORD" : {
+          "LABEL": "Password",
+          "ERRORS": {
+            "REQUIRED" : "Password is required",
+            "INVALID" : "Password must be at least 6 characters"
+          }
+        },
+        "REMEMBER_ME" : "Remember Me",
+        "SUBMIT" : "Login"
+      }
+    }
+  }
+}

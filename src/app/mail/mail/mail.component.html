@@ -1,0 +1,43 @@
+<main class='main-content bgc-grey-100'>
+
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" >
+   <form name="user">
+    <h1 class="h3"> {{user?.fname}} {{user?.lname}}</h1></form> <i (click)="refresh()" class="ti-reload float-right"> </i>
+</div>
+  <div class="card" style="border: transparent;">
+
+
+
+                  <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm" style="width: 100%;"  *ngFor="let mail of mail ; let r =index">
+                    <li   *ngIf="mail?.idS" routerLink="/mail/{{mail.idS._id}}" >
+                        <a class='peers fxw-nw td-n p-20 bdB w-1000 c-grey-800 cH-blue bgcH-grey-100'>
+                            <div class="peer mR-15">
+                                <img class="w-3r bdrs-50p"  src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.jpg" alt="">
+                            </div>
+                            <div class="peer peer-greed">
+                                <div>
+                                    <div class="peers jc-sb fxw-nw mB-5">
+                                        <div class="peer">
+                                            <p class="fw-500 mB-0" *ngIf="mail?.idS" >{{mail.idS.lname}} {{mail?.idS.fname}}</p>
+                                        </div>
+                                        <div class="peer">
+                                            <small class="fsz-xs"> {{ mail.date | date: 'dd/MM/yyyy HH:mm'}}</small>
+                                        </div>
+                                    </div>
+                                    <span class="c-grey-600 fsz-sm">
+                       {{mail.message}}
+                      </span>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+
+
+              </div>
+
+
+  </main>
