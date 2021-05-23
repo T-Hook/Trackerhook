@@ -96,6 +96,9 @@ var uniqueArray = this.removeDuplicates(data, "idS");
     console.log("check function refresh")
    this.getAllMails();
   }
+  refreshN(){
+   this.getAllNotifications();
+  }
 
 sendmail() {
   this.notificationservice.sendmail(this.send)

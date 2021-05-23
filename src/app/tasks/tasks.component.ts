@@ -61,6 +61,38 @@ export class TasksComponent extends GlobalComponent implements OnInit {
             }
         );
     }
+    start(id: number) {
+      if (!this.globalService.getToken || !this.globalService.currentUserValue) {
+        this.router.navigate(['authentication']);
+      }
+    this.taskService.start(id)
+        .pipe(first())
+        .subscribe(
+            data => {
+                console.log(data);
+            },
+            error => {
+                this.error = error;
+                this.loading = false;
+            }
+        );
+    }
+    stop(id: number) {
+      if (!this.globalService.getToken || !this.globalService.currentUserValue) {
+        this.router.navigate(['authentication']);
+      }
+    this.taskService.stop(id)
+        .pipe(first())
+        .subscribe(
+            data => {
+                console.log(data);
+            },
+            error => {
+                this.error = error;
+                this.loading = false;
+            }
+        );
+    }
 
 open(content) {
   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {

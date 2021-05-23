@@ -37,6 +37,23 @@ export class TaskService {
               }});
   }
 
+  start(id : number): Observable<Object> {
+    return this.http.put<any>(`${this.config.apiUrl}/api/task/` +id,{
+     status : "In progress"
+    },
+        { headers:{
+                Authorization:'bearer '+this.getToken()
+            }});
+}
+stop(id : number): Observable<Object> {
+  return this.http.put<any>(`${this.config.apiUrl}/api/task/` +id,{
+   status : "Finished"
+  },
+      { headers:{
+              Authorization:'bearer '+this.getToken()
+          }});
+}
+
     listRoleUserInTask(idTask) {
         return this.http.get<any>(
             `${this.config.apiUrl}/api/task/${idTask}/user/role?Authorization=Bearer ${this.getToken()}`,

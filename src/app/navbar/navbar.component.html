@@ -26,7 +26,7 @@
                 <ul class="dropdown-menu">
                     <li class="pX-20 pY-15 bdB">
                         <i class="ti-bell pR-10"></i>
-                        <span class="fsz-sm fw-600 c-grey-900">Notifications</span>
+                        <span class="fsz-sm fw-600 c-grey-900">Notifications</span> <i (click)="refreshN()" class="ti-reload float-right"> </i>
                     </li>
                     <li>
                         <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm" *ngFor="let notif of notification ; let r =index">
@@ -40,9 +40,13 @@
                               <span class="c-grey-600"> {{notif.data}} <span class="text-dark">{{notif.description}}</span>
                               </span>
                             </span>
+
+                            <div>
                                         <p class="m-0">
                                             <small class="fsz-xs " style="text-align: right;">{{notif.date | date: 'dd/MM/yyyy HH:mm'}}</small>
                                         </p>
+
+                                      </div>
                                     </div>
                                 </a>
                             </li>
